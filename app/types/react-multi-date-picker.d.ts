@@ -8,15 +8,59 @@ declare module "react-multi-date-picker" {
 
   export type Value = DateObject | Date | string | number;
 
+  interface FormattingValues {
+    [key: string]: string | number | boolean;
+  }
+
+  interface Locale {
+    name: string;
+    months: string[][];
+    weekDays: string[][];
+    digits: string[];
+    meridiems: string[][];
+    defaultFormat: string;
+  }
+
+  interface Calendar {
+    name: string;
+    months: string[][];
+    weekDays: string[][];
+    defaultFormat: string;
+    startYear: number;
+    yearLength: number;
+    epoch: number;
+    century: number;
+    calendar: string;
+    locale: string;
+    year: number;
+    month: number;
+    day: number;
+    weekStartDayIndex: number;
+    getMonthLengths: (year: number) => number[];
+    isLeap: (year: number) => boolean;
+    getLeaps: (start: number, end: number) => number[];
+    getAllDays: (date: DateObject) => number;
+    formattingValues: FormattingValues;
+    toJalaali?: (date: Date) => { jy: number; jm: number; jd: number };
+  }
+
   interface DatePickerProps {
-    value?: Value | null;
-    onChange?: (date: Value) => void;
-    calendar?: any;
-    locale?: any;
+    value?: Value | null | undefined;
+    onChange?: (
+      date: DateObject | null,
+      options?: { 
+        validatedValue: string | string[];
+        input: HTMLElement;
+        isTyping: boolean;
+      }
+    ) => void;
+    calendar?: Partial<Calendar>;
+    locale?: Partial<Locale>;
     minDate?: Date;
     format?: string;
     className?: string;
     calendarPosition?: string;
+    inputClass?: string;
   }
 
   const DatePicker: FC<DatePickerProps>;
@@ -24,11 +68,11 @@ declare module "react-multi-date-picker" {
 }
 
 declare module "react-date-object/calendars/persian" {
-  const persian: any;
+  const persian: Partial<Calendar>;
   export default persian;
 }
 
 declare module "react-date-object/locales/persian_fa" {
-  const persian_fa: any;
+  const persian_fa: Partial<Locale>;
   export default persian_fa;
 } 

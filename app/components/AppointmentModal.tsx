@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DatePicker, { Value } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+import { DateObject } from "react-multi-date-picker";
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -21,8 +22,8 @@ const timeSlots = [
 ];
 
 export default function AppointmentModal({ isOpen, onClose }: AppointmentModalProps) {
-  const [selectedDate, setSelectedDate] = useState<Value | null>(null);
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Value | undefined>(undefined);
+  const [selectedTime, setSelectedTime] = useState<string | undefined>(undefined);
   const [step, setStep] = useState<'date' | 'time' | 'info'>('date');
   const [patientInfo, setPatientInfo] = useState<PatientInfo>({
     fullName: '',
@@ -32,8 +33,8 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
 
   if (!isOpen) return null;
 
-  const handleDateSelect = (date: Value) => {
-    if (date && typeof date === 'object' && 'format' in date) {
+  const handleDateSelect = (date: DateObject | null) => {
+    if (date && 'format' in date) {
       setSelectedDate(date);
       setStep('time');
     }
@@ -77,8 +78,8 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
         
         onClose();
         setStep('date');
-        setSelectedDate(null);
-        setSelectedTime(null);
+        setSelectedDate(undefined);
+        setSelectedTime(undefined);
         setPatientInfo({ fullName: '', nationalId: '', phone: '' });
       } catch (error) {
         alert('متاسفانه مشکلی در ثبت نوبت پیش آمده. لطفا دوباره تلاش کنید.');

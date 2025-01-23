@@ -86,7 +86,7 @@ export async function POST(request: Request) {
     try {
       const fileContent = await fs.readFile(dataFilePath, 'utf-8');
       appointments = JSON.parse(fileContent);
-    } catch (error) {
+    } catch {
       // File doesn't exist yet, start with empty array
     }
     
@@ -101,8 +101,8 @@ export async function POST(request: Request) {
     await updateExcelFile(appointments);
     
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error('Error saving appointment:', error);
+  } catch (err) {
+    console.error('Error saving appointment:', err);
     return NextResponse.json(
       { error: 'Failed to save appointment' },
       { status: 500 }
