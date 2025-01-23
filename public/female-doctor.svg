@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Head -->
+  <circle cx="100" cy="70" r="40" fill="#FFE0BD"/>
+  <!-- Hair -->
+  <path d="M60 70 Q100 20 140 70 Q140 40 100 30 Q60 40 60 70" fill="#4A4A4A"/>
+  <!-- White Coat -->
+  <path d="M60 90 L50 200 H150 L140 90 Q100 100 60 90" fill="#FFFFFF" stroke="#EEEEEE"/>
+  <!-- Face Features -->
+  <circle cx="85" cy="65" r="5" fill="#4A4A4A"/> <!-- Left Eye -->
+  <circle cx="115" cy="65" r="5" fill="#4A4A4A"/> <!-- Right Eye -->
+  <path d="M90 80 Q100 85 110 80" fill="none" stroke="#4A4A4A" stroke-width="2"/> <!-- Smile -->
+  <!-- Stethoscope -->
+  <path d="M85 120 Q100 140 115 120" fill="none" stroke="#4A4A4A" stroke-width="3"/>
+  <circle cx="85" cy="120" r="5" fill="#4A4A4A"/>
+</svg> 

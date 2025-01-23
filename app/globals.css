@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-calendar {
+  width: 300px !important;
+  font-family: var(--font-vazir) !important;
+  box-shadow: none !important;
+  background-color: white !important;
+  color: #1f2937 !important;
+}
+
+.custom-calendar .rmdp-wrapper {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 1rem !important;
+  background-color: white !important;
+}
+
+.custom-calendar .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  background-color: white !important;
+}
+
+.custom-calendar .rmdp-day.rmdp-today span {
+  background-color: #fecdd3 !important;
+  color: #e11d48 !important;
+  font-weight: 700 !important;
+}
+
+.custom-calendar .rmdp-day.rmdp-selected span {
+  background-color: #e11d48 !important;
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+.custom-calendar .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+  background-color: #fecdd3 !important;
+  color: #e11d48 !important;
+}
+
+.custom-calendar .rmdp-week-day {
+  color: #4b5563 !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+}
+
+.custom-calendar .rmdp-header {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  padding: 1rem !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.custom-calendar .rmdp-header-values {
+  color: #1f2937 !important;
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  margin: 0 1rem !important;
+}
+
+.custom-calendar .rmdp-header select {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.custom-calendar .rmdp-header select:focus {
+  outline: none !important;
+  border-color: #e11d48 !important;
+  ring: 2px !important;
+  ring-color: #fecdd3 !important;
+}
+
+.custom-calendar .rmdp-arrow {
+  border: solid #1f2937 !important;
+  border-width: 0 2px 2px 0 !important;
+}
+
+.custom-calendar .rmdp-arrow-container:hover {
+  background-color: #fecdd3 !important;
+  box-shadow: 0 0 3px #e11d48 !important;
+}
+
+.custom-calendar .rmdp-day.rmdp-disabled span {
+  color: #9ca3af !important;
+}
+
+.custom-calendar .rmdp-panel-body li {
+  color: #1f2937 !important;
+  font-weight: 500 !important;
+}
+
+.custom-calendar .rmdp-panel-body li:hover {
+  background-color: #fecdd3 !important;
+  color: #e11d48 !important;
+}
+
+.custom-calendar input {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.5rem 1rem !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.5rem !important;
+  width: 100% !important;
+  background-color: white !important;
+}
+
+.custom-calendar input:focus {
+  outline: none !important;
+  border-color: #e11d48 !important;
+  ring: 2px !important;
+  ring-color: #fecdd3 !important;
+}
